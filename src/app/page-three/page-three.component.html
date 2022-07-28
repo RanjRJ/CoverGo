@@ -1,0 +1,22 @@
+<div class="container mx-auto">
+  <div class="flex min-h-screen items-center">
+    <div class="flex-1 bg-gray-50 mx-auto h-full max-w-4xl rounded-lg shadow-xl">
+      <div class="flex flex-col md:flex-row">
+        <div class="flex items-center justify-center p-6 sm:p-12 w-full">
+          <div class="w-full items-center">
+            <p class="mb-4 hello-text text-center">Summary</p>
+            <h3 class="mt-3 mb-4 text-sm text-center">Name: <span id="name">{{savedData?.name | titlecase}}</span></h3>
+            <h3 class="mt-3 mb-4 text-sm text-center">Age:  <span id="age">{{savedData?.age}}</span></h3>
+            <h3 class="mt-3 mb-4 text-sm text-center">Where Do you live:  <span id="location">{{savedData?.location[0].text}}</span></h3>
+            <h3 class="mt-3 mb-4 text-sm text-center">Package:  <span id="package">{{savedData?.package[0].text}}</span></h3>
+            <h3 class="mt-3 mb-4 text-sm text-center">Premium:  <span id="premiumVal">{{savedData?.premiumValue}}</span><span id="surrtype">{{savedData?.location[0]?.code}}</span></h3>
+            <div class="text-center mt-10">
+              <button type="button" class="rounded shadow-xl py-3 px-4 w-32 border border-black-900 transition ease-in-out delay-150 hover:-translate-y-1 hover:bg-indigo-500 duration-300" [routerLink]="['/page2']">Back</button> &nbsp;
+              <button type="button" class="rounded bg-black text-white shadow-xl py-3 px-4 w-32 transition ease-in-out delay-150 hover:-translate-y-1 hover:bg-indigo-500 duration-300" [routerLink]="['','page3']">Buy</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

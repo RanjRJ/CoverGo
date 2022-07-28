@@ -1,0 +1,71 @@
+<div class="container mx-auto" *ngIf="!isError">
+  <div class="flex min-h-screen items-center">
+    <div class="flex-1 bg-gray-50 mx-auto h-full max-w-4xl rounded-lg shadow-xl">
+      <div class="flex flex-col md:flex-row">
+        <div class="flex items-center justify-center p-6 sm:p-12 w-full">
+          <div class="w-full items-center">
+            <p class="mb-4 hello-text text-center">Tell us about yourself</p>
+            <h6 class="text-red-600 text-center text-sm">{{errorMessage}}</h6>
+            <div class="flex flex-col md:px-48" [formGroup]="quotationForm" id="quotationForm">
+              <div class="mt-4 mb-4">
+                <label class="block text-sm">Name </label>
+                <input type="text" id="name" class="w-full px-4 py-2 text-sm focus:ring-blue-600 focus:border-blue-400 border rounded focus:outline-none" placeholder="First Name" formControlName="name" />
+              </div>
+
+              <div class="mt-4 mb-4">
+                <label class="block text-sm">Age </label>
+                <input type="number" id="age" class="w-full px-4 py-2 text-sm focus:ring-blue-600 focus:border-blue-400 border rounded focus:outline-none" min="0" placeholder="Age" formControlName="age" />
+              </div>
+
+              <div class="mt-4 mb-4">
+                <label class="block text-sm">Where do you live </label>
+                <select type="text" id="location" class="w-full px-4 py-2 text-sm focus:ring-blue-600 focus:border-blue-400 border rounded focus:outline-none" placeholder="Location" formControlName="location">
+                  <option [value]="row.id" *ngFor="let row of countries">{{row.text}}</option>
+                </select>
+              </div>
+
+              <div class="mt-4 mb-4">
+                <div class="flex items-center mb-2" *ngFor="let row of packages">
+                  <input type="radio" [value]="row.id" [id]="'packagetype_'+row.id" class="w-4 h-4" formControlName="package">
+                  <label [for]="'packagetype_'+row.id" class="ml-2 text-sm">{{row.text}}
+                    <span *ngIf="(row.execcamount > 0 || row.percerntage > 0)  && row.showAccess">(</span>
+                      <span *ngIf="row.execcamount > 0 && row.showAccess">+{{row.execcamount}}, </span>
+                      <span *ngIf="row.percerntage > 0 && row.showAccess">+{{row.percerntage}}%</span>
+                    <span *ngIf="(row.execcamount > 0 || row.percerntage > 0) && row.showAccess">) </span> </label>
+                </div>
+              </div>
+
+              <div class="mt-4 mb-4">
+                <h3 class="text-center text-xl font-bold">Your Premium is: <span class="ml-10"><span id="premiumVal">{{savedData?.premiumValue}}</span><span id="currencyType">{{savedData?.location[0].code}}</span></span></h3>
+              </div>
+
+              <div class="text-center mt-10">
+                <button type="button" class="backBtn rounded shadow-xl py-3 px-4 w-32 border border-black-900 transition ease-in-out delay-10 hover:-translate-y-1 hover:bg-indigo-500 duration-300" [routerLink]="['/']">Back</button> &nbsp;
+                <button type="button" class="nextBtn rounded bg-black text-white shadow-xl py-3 px-4 w-32 transition ease-in-out delay-10 hover:-translate-y-1 hover:bg-indigo-500 duration-300" (click)="movetonextstep()">Next</button>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container mx-auto" *ngIf="isError">
+  <div class="flex min-h-screen items-center">
+    <div class="flex-1 bg-gray-50 mx-auto h-full max-w-4xl rounded-lg shadow-xl">
+      <div class="flex flex-col md:flex-row">
+        <div class="flex items-center justify-center p-6 sm:p-12 w-full">
+          <div class="w-full items-center">
+            <p class="mb-4 hello-text text-center">Ooops</p>
+            <h3 class="mb-4 text-sm text-center">Your age is over our expected limit.</h3>
+            <h3 class="mb-4 text-sm text-center">We are sorry but we cannot insure you now</h3>
+            <p class="text-center mt-4"><button type="button" class="rounded bg-black text-white shadow-xl py-2 px-3 w-48 transition ease-in-out delay-150 hover:-translate-y-1 hover:bg-indigo-500 duration-300" [routerLink]="['']">OK :(</button></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
