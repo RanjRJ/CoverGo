@@ -1,4 +1,4 @@
-#project setup
+## project setup
 * To run the project make sure you have installed these,
     1. Angular CLI (my version is Angular CLI 11)
     2. NodeJS (my node version is v14.15.4)
@@ -10,14 +10,14 @@
     4. type "ng test" for run the unit test to the project
     
 
-#technical choice
+## technical choice
 * Angular 11 (My current cli compatible version).
 * tailwindcss ( for styling the project)
 * Rxjs & Reactive forms (reactive programming)
 * Jasmin and Karma (for unit testing)
 
 
-#architecture and approach
+## architecture and approach
 * have created 3 separate pages
     1. page-one(start page)
     2. page-two(add quotation details)
