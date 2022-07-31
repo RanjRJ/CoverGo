@@ -1,5 +1,14 @@
 # Covergo Assignment Ranjan
 
+## to run the project
+1. go to project directory
+2. open command line for the project directory
+3. run "npm install"
+4. run "ng serve"
+
+
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.7.
 
 ## Development server
